@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../shared/authContext';  
 import './loader.css';
+import Appbar from './Appbar';
+
 
 const Home = () => {
   const [weatherData, setWeatherData] = useState([]);
@@ -32,6 +34,8 @@ const Home = () => {
   };
 
   return (
+    <>
+    <Appbar/>
     <div className="p-8 bg-gray-100 min-h-screen flex justify-center items-center">
       <div className="w-full max-w-5xl">
         <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">Realtime Weather App</h1>
@@ -68,6 +72,7 @@ const Home = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 

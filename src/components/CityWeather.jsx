@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import AuthContext from '../shared/authContext';
+import Appbar from './Appbar';
 
-// Utility to format date
 const formatDate = (dateString) => {
   const date = new Date(dateString);
   return date.toLocaleDateString('en-US', {
@@ -16,12 +16,12 @@ const CityWeather = () => {
   const { name } = useParams();  
   const [weatherHistory, setWeatherHistory] = useState([]);
   const [loading, setLoading] = useState(true);  
-  const { weatherhistory } = useContext(AuthContext);  // Use weatherhistory from context
+  const { weatherhistory } = useContext(AuthContext); 
 
   useEffect(() => {
     const fetchCityWeatherHistory = async () => {
       try {
-        const response = await weatherhistory({ name });  // Use context function
+        const response = await weatherhistory({ name });  
         if (response.data.success) {
           setWeatherHistory(response.data.result);
         }
@@ -36,6 +36,8 @@ const CityWeather = () => {
   }, [name, weatherhistory]);
 
   return (
+    <>
+    <Appbar/> 
     <div className="p-8 bg-gray-100 min-h-screen flex justify-center items-center">
       <div className="w-full max-w-5xl">
         <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">Weather History for {name}</h1>
@@ -68,6 +70,7 @@ const CityWeather = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 
