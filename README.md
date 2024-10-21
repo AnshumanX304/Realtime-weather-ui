@@ -15,8 +15,8 @@ To set up the project locally, follow these steps:
 
 1. Clone the repository:
    ```
-   git clone <repository-url>
-   cd realtime-weather-ui
+   git clone https://github.com/AnshumanX304/Realtime-weather-ui.git
+   cd Realtime-weather-ui
    ```
 
 2. Install the dependencies:
