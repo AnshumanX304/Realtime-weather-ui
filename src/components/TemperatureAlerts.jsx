@@ -36,7 +36,7 @@ const TemperatureAlerts = () => {
         };
 
         fetchAlerts();
-        const interval = setInterval(fetchAlerts, 120000);
+        const interval = setInterval(fetchAlerts, 300000);
         
         return () => clearInterval(interval);
     }, [getAlerts]);
