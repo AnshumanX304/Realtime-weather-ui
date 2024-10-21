@@ -6,6 +6,7 @@ const Alert = ({ variant, children }) => {
   const variantStyles = {
     default: "bg-blue-100 border border-blue-400 text-blue-700",
     destructive: "bg-red-100 border border-red-400 text-red-700",
+    warning: "bg-yellow-100 border border-yellow-400 text-yellow-700",
   };
 
   return (
@@ -44,6 +45,15 @@ const TemperatureAlerts = () => {
     const AlertContent = () => {
         if (thresholdTemperature === null) {
             return <div>Loading...</div>;
+        }
+
+        if (thresholdTemperature === 1000) {
+            return (
+                <Alert variant="warning">
+                    <AlertTitle>Configuration Warning</AlertTitle>
+                    The alert threshold temperature is not set. Please configure the threshold in the top left menu.
+                </Alert>
+            );
         }
 
         if (alerts.length === 0) {
