@@ -15,7 +15,7 @@ const Appbar = () => {
     };
 
     const menuItems = [
-        { name: 'Set threshold', icon: Sliders },
+        { name: 'Set threshold', icon: Sliders, action: () => navigate('/edit-threshold') },
     ];
 
     const handleLogout = () => {
@@ -38,14 +38,17 @@ const Appbar = () => {
                                 Hey, {details.user}!
                             </div>
                             {menuItems.map((item, index) => (
-                                <a
+                                <button
                                     key={index}
-                                    href="#"
-                                    className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                                    onClick={() => {
+                                        item.action();
+                                        setIsOpen(false);
+                                    }}
+                                    className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
                                 >
                                     <item.icon size={18} className="mr-2" />
                                     {item.name}
-                                </a>
+                                </button>
                             ))}
                             <div className="border-t border-gray-100"></div>
                             <button

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Cookies from "js-cookie";
-const url ="http://localhost:3354/"
+import url from "./backendUrl"
 const instance = axios.create(
     {
         baseURL: url

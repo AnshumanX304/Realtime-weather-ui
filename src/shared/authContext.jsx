@@ -46,12 +46,28 @@ export const AuthContextProvider = ({ children }) => {
             });
     };
 
+    const updateThreshold = async (payload) => {
+        return axios.post("http://localhost:3354/user/set_threshold", payload, {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: 'Bearer ' + Cookies.get('ac_token')
+            }
+        });
+    };
+    const getAlerts = async () => {
+        return axios.get("http://localhost:3354/user/getalerts", {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: 'Bearer ' + Cookies.get('ac_token')
+            }
+        });
+    };
+
+
     return (
-        <>
-        <AuthContext.Provider value={{ homedata, weatherhistory,login,signup }}>
+        <AuthContext.Provider value={{ homedata, weatherhistory, login, signup, updateThreshold,getAlerts }}>
             {children}
         </AuthContext.Provider>
-        </>
     );
 };
 

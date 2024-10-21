@@ -3,8 +3,6 @@ import { useState, useContext } from 'react';
 import validator from "validator";
 import ReqContext from "../shared/authContext";
 import Cookies from "js-cookie";
-import { useSetRecoilState } from "recoil";
-import { detailsAtom } from "../Store/Atoms/DetailsAtom"
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -14,7 +12,6 @@ const Signup = () => {
     const [password, setPassword] = useState("");
     const { signup } = useContext(ReqContext);
 
-    const setDetails = useSetRecoilState(detailsAtom);
 
     const validateEmail = (inputText) => {
         setEmail(validator.trim(inputText));
