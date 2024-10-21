@@ -51,7 +51,7 @@ const TemperatureAlerts = () => {
             return (
                 <Alert variant="warning">
                     <AlertTitle>Configuration Warning</AlertTitle>
-                    The alert threshold temperature is not set. Please configure the threshold in the top left menu.
+                    The alert threshold temperature is not set. Please configure the threshold in the top right menu.
                 </Alert>
             );
         }
